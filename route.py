@@ -1,5 +1,3 @@
-from A import *
-
 from const import *
 def route(side = get_world_size()):
 	if side % 2:

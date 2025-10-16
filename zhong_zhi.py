@@ -1,4 +1,3 @@
-from A import *
 def jiao_shui():
 	if num_items(Items.Water) and get_water() <= 0.75:
 		use_item(Items.Water)

@@ -1,5 +1,3 @@
-from A import *
-
 from const import *
 def to(x=0, y=0):
 	if get_pos_x() < x:

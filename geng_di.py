@@ -1,4 +1,3 @@
-from A import *
 def run(route_list):
 	clear()
 	for i in route_list:

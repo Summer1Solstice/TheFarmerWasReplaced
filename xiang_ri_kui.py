@@ -1,5 +1,3 @@
-from A import *
-
 import zhong_zhi
 import route
 import go
