@@ -1,8 +1,8 @@
-def run(route_list):
+import route
+def run(way):
 	clear()
-	for i in route_list:
+	for i in way:
 		till()
 		move(i)
 if __name__ == "__main__":
-	import route
 	run(route.route())

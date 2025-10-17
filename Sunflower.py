@@ -1,5 +1,8 @@
+# 向日葵种植、收获
+# 种: Entities.Sunflower
+# 收: Items.Power
+
 import zhong_zhi
-import route
 import go
 def run(array):
 	map = {7:[],8:[], 9:[], 10:[], 11:[], 12:[], 13:[], 14:[], 15:[]}
@@ -23,4 +26,5 @@ def run(array):
 	
 if __name__ == "__main__":
 	go.to()
+	import route
 	run(route.route())
