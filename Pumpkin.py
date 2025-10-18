@@ -8,32 +8,34 @@ import zhong_zhi
 
 
 def run(way):
-	for i in way:
-		zhong_zhi.dan_1(Entities.Pumpkin)
-		move(i)
+    for i in way:
+        zhong_zhi.dan_1(Entities.Pumpkin)
+        move(i)
 
-	array = []
-	for i in way:
-		x = get_pos_x()
-		y = get_pos_y()
-		if zhong_zhi.dan_1(Entities.Pumpkin):
-			array.append((x, y))
-		move(i)
+    array = []
+    for i in way:
+        x = get_pos_x()
+        y = get_pos_y()
+        if zhong_zhi.dan_1(Entities.Pumpkin):
+            array.append((x, y))
+        move(i)
 
-	while len(array) != 0:
-		temp = []
-		for i in array:
-			x = i[0]
-			y = i[1]
-			go.to(x, y)
-			if zhong_zhi.dan_1(Entities.Pumpkin):
-				temp.append(i)
-		array = temp
-	zhong_zhi.shou_huo()
+    while len(array) != 0:
+        temp = []
+        for i in array:
+            x = i[0]
+            y = i[1]
+            go.to(x, y)
+            if zhong_zhi.dan_1(Entities.Pumpkin):
+                temp.append(i)
+        array = temp
+    zhong_zhi.shou_huo()
 
 
 if __name__ == "__main__":
-	go.to()
-	import route
+    go.to()
+    import route
 
-	run(route.route())
+    way = route.cycle()
+    while True:
+        run(way)

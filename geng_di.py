@@ -5,4 +5,4 @@ def run(way):
 		till()
 		move(i)
 if __name__ == "__main__":
-	run(route.route())
+	run(route.cycle())

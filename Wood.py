@@ -1,3 +1,7 @@
+#木材种植、收获
+# 种: Entities.Wood
+# 收: Items.Wood
+
 import zhong_zhi
 
 
@@ -15,6 +19,6 @@ def run(way, pe=Entities.Grass):
 
 if __name__ == "__main__":
 	import route
-	way = route.route()
+	way = route.cycle()
 	while True:
 		run(way)

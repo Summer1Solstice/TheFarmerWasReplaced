@@ -10,9 +10,8 @@ import Bone 		#骨、贪吃蛇
 import Sunflower	#向日葵种植、收获
 
 side = get_world_size()
-array = route.route()
+array = route.zigzag_Y()
 
 #change_hat(Hats.Dinosaur_Hat)
 go.to()
-while True:
-	Sunflower.run(array)
+Bone.run(array)

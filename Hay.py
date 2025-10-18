@@ -11,4 +11,6 @@ def run(way):
 
 if __name__ == '__main__':
 	import route
-	run(route.route())
+	way = route.cycle()
+	while True:
+		run(way)
