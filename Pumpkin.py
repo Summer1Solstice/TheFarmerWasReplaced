@@ -7,7 +7,6 @@ import zhong_zhi
 
 
 def run(way):
-    plough.run(way)
     while True:
         for i in way:
             zhong_zhi.dan_1(Entities.Pumpkin)
@@ -17,7 +16,10 @@ def run(way):
         for i in way:
             x = get_pos_x()
             y = get_pos_y()
-            if zhong_zhi.dan_1(Entities.Pumpkin):
+            if get_entity_type() == Entities.Dead_Pumpkin:
+                zhong_zhi.dan_1(Entities.Pumpkin)
+                array.append((x, y))
+            elif not can_harvest():
                 array.append((x, y))
             move(i)
 
@@ -27,10 +29,18 @@ def run(way):
                 x = i[0]
                 y = i[1]
                 go.to(x, y)
-                if zhong_zhi.dan_1(Entities.Pumpkin):
+                if len(array) == 1:
+                    zhong_zhi.fertilize()
+                if get_entity_type() == Entities.Dead_Pumpkin:
+                    zhong_zhi.dan_1(Entities.Pumpkin)
+                    temp.append(i)
+                elif not can_harvest():
                     temp.append(i)
             array = temp
+
         zhong_zhi.shou_huo()
+        go.to()
+    return False
 
 
 if __name__ == "__main__":

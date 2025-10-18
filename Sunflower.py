@@ -4,7 +4,6 @@
 
 import zhong_zhi
 import go
-import plough
 
 
 def run(array):

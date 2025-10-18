@@ -3,11 +3,9 @@
 # 收: Items.Wood
 
 import zhong_zhi
-import plough
 
 
 def run(way, pe=Entities.Grass):
-    plough.run(way)
     while True:
         for i in way:
             zhong_zhi.shou_huo()

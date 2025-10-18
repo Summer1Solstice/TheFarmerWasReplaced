@@ -6,15 +6,15 @@ import zhong_zhi
 import go
 
 def run(way):
-	claer()
-	go.to()
-	while True:
-		for i in way:
-			zhong_zhi.shou_huo()
-			move(i)
+    clear()
+    go.to()
+    while True:
+        for i in way:
+            zhong_zhi.shou_huo()
+            move(i)
 
 
 if __name__ == "__main__":
-	import route
+    import route
 
-	run(route.cycle())
+    run(route.cycle())
