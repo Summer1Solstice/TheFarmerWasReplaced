@@ -2,16 +2,17 @@
 # 种: Entities.Carrot
 # 收: Items.Carrot
 import zhong_zhi
-
-
+import plough
 def run(way):
-	for i in way:
-		zhong_zhi.shou_huo()
-		zhong_zhi.dan_1(Entities.Carrot)
-		move(i)
-
-if __name__ == '__main__':
-	import route
-	way = route.cycle()
+	plough.run(way)
 	while True:
-		run(way)
+		for i in way:
+			zhong_zhi.shou_huo()
+			zhong_zhi.dan_1(Entities.Carrot)
+			move(i)
+
+
+if __name__ == "__main__":
+	import route
+
+	run(route.cycle())
