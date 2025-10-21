@@ -1,4 +1,4 @@
-from const import *
+from direction import *
 def to(x=0, y=0):
     if get_pos_x() < x:
         while get_pos_x() != x:

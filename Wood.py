@@ -5,8 +5,10 @@
 import zhong_zhi
 
 
-def run(way, pe=Entities.Grass):
+def run(way, target=50000000):
     while True:
+        if num_items(Items.Wood) >= target:
+            return False
         for i in way:
             zhong_zhi.shou_huo()
             x = get_pos_x()

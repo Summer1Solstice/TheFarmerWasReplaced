@@ -5,13 +5,18 @@
 import zhong_zhi
 import go
 
-def run(way):
+
+def run(way, target=50000000):
+    if num_items(items.Hay) >= target:
+        return False
     clear()
     go.to()
     while True:
         for i in way:
             zhong_zhi.shou_huo()
             move(i)
+        if num_items(items.Hay) >= target:
+            break
 
 
 if __name__ == "__main__":

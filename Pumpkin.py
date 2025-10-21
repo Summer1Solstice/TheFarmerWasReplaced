@@ -7,40 +7,43 @@ import zhong_zhi
 
 
 def run(way):
-    while True:
-        for i in way:
-            zhong_zhi.dan_1(Entities.Pumpkin)
-            move(i)
+    for i in way:
+        zhong_zhi.shou_huo()
+        zhong_zhi.dan_1(Entities.Pumpkin)
+        move(i)
 
-        array = []
-        for i in way:
-            x = get_pos_x()
-            y = get_pos_y()
+    array = []
+    for i in way:
+        x = get_pos_x()
+        y = get_pos_y()
+        if zhong_zhi.dan_1(Entities.Pumpkin) or not can_harvest():
+            array.append((x, y))
+        move(i)
+
+    while len(array) > 36:
+        temp = []
+        for i in array:
+            x = i[0]
+            y = i[1]
+            go.to(x, y)
+            if zhong_zhi.dan_1(Entities.Pumpkin) or not can_harvest():
+                temp.append(i)
+        array = temp
+
+    for i in array:
+        x = i[0]
+        y = i[1]
+        go.to(x, y)
+        while True:
             if get_entity_type() == Entities.Dead_Pumpkin:
                 zhong_zhi.dan_1(Entities.Pumpkin)
-                array.append((x, y))
-            elif not can_harvest():
-                array.append((x, y))
-            move(i)
+            if not can_harvest():
+                use_item(Items.Fertilizer)
+            else:
+                break
 
-        while len(array) != 0:
-            temp = []
-            for i in array:
-                x = i[0]
-                y = i[1]
-                go.to(x, y)
-                if len(array) == 1:
-                    zhong_zhi.fertilize()
-                if get_entity_type() == Entities.Dead_Pumpkin:
-                    zhong_zhi.dan_1(Entities.Pumpkin)
-                    temp.append(i)
-                elif not can_harvest():
-                    temp.append(i)
-            array = temp
-
-        zhong_zhi.shou_huo()
-        go.to()
-    return False
+    zhong_zhi.shou_huo()
+    go.to()
 
 
 if __name__ == "__main__":

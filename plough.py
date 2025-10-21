@@ -4,6 +4,8 @@ def run(way):
     for i in way:
         if get_ground_type() != Grounds.Soil:
             till()
+        elif can_harvest():
+            harvest()
         move(i)
 
 

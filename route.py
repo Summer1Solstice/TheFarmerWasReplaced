@@ -1,4 +1,4 @@
-from const import *
+from direction import *
 
 
 def cycle(side=get_world_size()):

@@ -19,10 +19,10 @@ def shou_huo():
     return False
 
 
-def cost(pe):  # 成本
+def cost(pe, area):  # 成本
     map = get_cost(pe)
     for i in map:
-        if num_items(i) <= map[i]:
+        if num_items(i) <= (map[i] * area):
             return False
     return True
 

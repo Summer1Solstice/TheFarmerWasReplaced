@@ -5,12 +5,10 @@ import zhong_zhi
 
 
 def run(way):
-    while True:
-        for i in way:
-            zhong_zhi.shou_huo()
-            zhong_zhi.dan_1(Entities.Carrot)
-            move(i)
-    return False
+    for i in way:
+        zhong_zhi.shou_huo()
+        zhong_zhi.dan_1(Entities.Carrot)
+        move(i)
 
 
 if __name__ == "__main__":
