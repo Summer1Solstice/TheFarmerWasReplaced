@@ -20,7 +20,7 @@ def run(way):
             array.append((x, y))
         move(i)
 
-    while len(array) > 36:
+    while len(array) > 64:
         temp = []
         for i in array:
             x = i[0]

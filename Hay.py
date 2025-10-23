@@ -7,7 +7,7 @@ import go
 
 
 def run(way, target=50000000):
-    if num_items(items.Hay) >= target:
+    if num_items(Items.Hay) >= target:
         return False
     clear()
     go.to()
@@ -15,7 +15,7 @@ def run(way, target=50000000):
         for i in way:
             zhong_zhi.shou_huo()
             move(i)
-        if num_items(items.Hay) >= target:
+        if num_items(Items.Hay) >= target:
             break
 
 
