@@ -47,3 +47,21 @@ def zigzag_X(side=get_world_size()):
                 result.append(right)
         result.append(up)
     return result
+
+
+def stair_X(side=get_world_size()):
+    result = []
+    for _ in range(side):
+        for _ in range(side):
+            result.append(right)
+        result.append(up)
+    return result
+
+
+def stair_Y(side=get_world_size()):
+    result = []
+    for _ in range(side):
+        for _ in range(side):
+            result.append(up)
+        result.append(right)
+    return result

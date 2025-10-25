@@ -16,7 +16,7 @@ def run(way, target=50000000):
             if (x + y) % 2:
                 zhong_zhi.dan_1(Entities.Tree)
             else:
-                zhong_zhi.dan_1(pe)
+                zhong_zhi.dan_1(Entities.Grass)
             move(i)
 
 
