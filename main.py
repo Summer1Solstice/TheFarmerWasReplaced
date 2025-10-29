@@ -15,6 +15,8 @@ K = 1000  # 千
 M = 1000000  # 百万
 B = 1000000000  # 十亿
 
+set_world_size(12)
+
 side = get_world_size()  # 地图边长
 area = side**2  # 地图面积
 
@@ -29,17 +31,20 @@ stair_Y = route.stair_Y()  # Y轴楼梯路径
 def run():
     plough.run(cycle)
     do_a_flip()
+
     while True:
-        if zhong_zhi.cost(Entities.Pumpkin, area) and False:
-            Pumpkin.run(cycle)
-        elif num_items(Items.Power) <= 10000 and zhong_zhi.cost(
-            Entities.Sunflower, area
-        ):
-            Sunflower.run(cycle)
-        elif zhong_zhi.cost(Entities.Carrot, area):
-            Carrot.run(cycle)
-        elif Wood.run(cycle, 50 * M):
-            pass
-        else:
-            Hay.run(cycle, 50 * M)
-            plough.run(cycle)
+        if num_items(Items.Hay) <= 1 * M:
+            Hay.run(cycle,50 * M)
+        elif num_items(Items.Wood) <= 1 * M:
+            Wood.run(cycle,50 * M)
+        elif num_items(Items.Carrot) <= 1 * M:
+            Carrot.run(cycle,50 * M)
+        elif num_items(Items.Power) <= 1*K:
+            Sunflower.run(cycle,50 * K)
+        elif num_items(Items.Pumpkin) <= 1 * M:
+            Pumpkin.run(cycle,50 * M)
+        elif num_items(Items.Cactus) <= 1 * M and False:
+            Cactus.run(cycle,50 * M)
+
+
+run()

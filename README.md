@@ -7,7 +7,7 @@ steam游戏《The Farmer Was Replaced》
 
 所有产出脚本的`run`函数都需要传入由`route.py`生成的路径。
 
-- [x] 除了草和木头之外的 `run` 改为运行一次，草和木头保持无限循环产出。
+
 ##### Bone.py
 贪吃蛇脚本，还没有开始种仙人掌，所以没有经过测试。
 ##### Carrot.py
