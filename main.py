@@ -1,5 +1,6 @@
 from direction import *  # 转换地图方向为屏幕方向
-import zhong_zhi  # 种植、收获、浇水
+import utils  # 种植、收获、浇水
+from utils import K, M, B
 import route  # 生成路径
 import go  # 前往指定坐标
 import plough  # 耕地
@@ -11,12 +12,9 @@ import Cactus  # 仙人掌种植、收获
 import Bone  # 骨、贪吃蛇
 import Sunflower  # 向日葵种植、收获
 
-K = 1000  # 千
-M = 1000000  # 百万
-B = 1000000000  # 十亿
 
 set_world_size(10)
-zhong_zhi.Watering = True
+utils.Watering = True
 side = get_world_size()  # 地图边长
 area = side**2  # 地图面积
 
@@ -34,17 +32,17 @@ def run():
 
     while True:
         if num_items(Items.Hay) <= 1 * M:
-            Hay.run(cycle,50 * M)
+            Hay.run(cycle, 50 * M)
         elif num_items(Items.Wood) <= 1 * M:
-            Wood.run(cycle,50 * M)
+            Wood.run(cycle, 50 * M)
         elif num_items(Items.Carrot) <= 1 * M:
-            Carrot.run(cycle,50 * M)
-        elif num_items(Items.Power) <= 1*K:
-            Sunflower.run(cycle,50 * K)
+            Carrot.run(cycle, 50 * M)
+        elif num_items(Items.Power) <= 1 * K:
+            Sunflower.run(cycle, 50 * K)
         elif num_items(Items.Pumpkin) <= 1 * M:
-            Pumpkin.run(cycle,50 * M)
+            Pumpkin.run(cycle, 50 * M)
         elif num_items(Items.Cactus) <= 1 * M and False:
-            Cactus.run(cycle,50 * M)
+            Cactus.run(cycle, 50 * M)
 
 
 run()

@@ -1,5 +1,5 @@
 import go
-import zhong_zhi
+import utils
 
 
 def run(way,pe=Entities.Grass):
@@ -11,8 +11,8 @@ def run(way,pe=Entities.Grass):
                 poly = PolyMap.pop(coord)
             else:
                 poly = pe
-            zhong_zhi.shou_huo()
-            zhong_zhi.dan_1(poly)
+            utils.shou_huo()
+            utils.dan_1(poly)
             if get_companion() != None:
                 poly, coord = get_companion()
                 PolyMap[coord] = poly
@@ -24,9 +24,7 @@ if __name__ == "__main__":
     import plough
 
     cycle = route.cycle()
-    if get_ground_type() == Grounds.Grassland:
-        plough.run(cycle)
-    else:
+    if not plough.run(cycle):
         go.to()
 
     run(cycle)

@@ -1,11 +1,15 @@
+# 仙人掌种植、收获
+# 种: Entities.Cactus
+# 收: Items.Cactus
 from direction import *
-import zhong_zhi
+import utils
 import go
 
-def run(way):
-    side=get_world_size()
-    area = side ** 2
-    while num_items(Items.Cactus) < area and zhong_zhi.cost(Entities.Cactus, area):
+
+def run(way, target):
+    side = get_world_size()
+    area = side**2
+    while num_items(Items.Cactus) < target and utils.cost(Entities.Cactus, area):
         for _ in way:
             plant(Entities.Cactus)
             move(_)
@@ -29,5 +33,13 @@ def run(way):
                     swap(up)
                 move(i)
             if not flag:
-                zhong_zhi.shou_huo()
+                utils.shou_huo()
                 go.to()
+
+
+if __name__ == "__main__":
+    import route
+    import plough
+
+    plough.run(route.cycle())
+    run(route.cycle(), 100 * utils.M)

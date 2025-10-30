@@ -3,32 +3,39 @@
 # 收: Items.Pumpkin
 
 import go
-import zhong_zhi
-
+import utils
 
 def run(way, target):
     area = get_world_size() ** 2
-    while num_items(Items.Pumpkin) < target and zhong_zhi.cost(Entities.Pumpkin, area):
+    loop = 64
+    if area <= loop :
+        utils.Watering = True
+    else:
+        loop = area * 0.2
+        if loop < 64:
+            loop = 64
+    quick_print("loop:",loop)
+    while num_items(Items.Pumpkin) < target and utils.cost(Entities.Pumpkin, area):
         for i in way:
-            zhong_zhi.shou_huo()
-            zhong_zhi.dan_1(Entities.Pumpkin)
+            utils.shou_huo()
+            utils.dan_1(Entities.Pumpkin)
             move(i)
 
         array = []
         for i in way:
             x = get_pos_x()
             y = get_pos_y()
-            if zhong_zhi.dan_1(Entities.Pumpkin) or not can_harvest():
+            if utils.dan_1(Entities.Pumpkin) or not can_harvest():
                 array.append((x, y))
             move(i)
-
-        while len(array) > 64:
+        quick_print(len(array))
+        while len(array) > loop:
             temp = []
             for i in array:
                 x = i[0]
                 y = i[1]
                 go.to(x, y)
-                if zhong_zhi.dan_1(Entities.Pumpkin) or not can_harvest():
+                if utils.dan_1(Entities.Pumpkin) or not can_harvest():
                     temp.append(i)
             array = temp
 
@@ -38,17 +45,18 @@ def run(way, target):
             go.to(x, y)
             while True:
                 if get_entity_type() == Entities.Dead_Pumpkin:
-                    zhong_zhi.dan_1(Entities.Pumpkin)
+                    utils.dan_1(Entities.Pumpkin)
                 if not can_harvest():
                     use_item(Items.Fertilizer)
                 else:
                     break
 
-        zhong_zhi.shou_huo()
+        utils.shou_huo()
         go.to()
 
 
 if __name__ == "__main__":
     import route
-
-    run(route.cycle())
+    import plough
+    plough.run(route.cycle())
+    run(route.cycle(),utils._unlock(Unlocks.Cactus))

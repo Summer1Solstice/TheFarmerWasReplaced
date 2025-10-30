@@ -2,14 +2,15 @@
 import go
 
 while True:
-    if num_items(Items.Weird_Substance) <= size**2:
+    size = get_world_size()
+    if not num_items(Items.Weird_Substance) <= size**2:
         for _ in range(3):
             print("error: No Weird_Substance.")
             do_a_flip()
+        break
 
     clear()
     go.to(0, 0)
-    size = get_world_size()
     for i in range(size):
         for j in range(size):
             plant(Entities.Bush)

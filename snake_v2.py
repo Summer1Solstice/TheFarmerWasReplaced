@@ -1,5 +1,5 @@
 # https://gitee.com/F-xy/code-farm
-import zhong_zhi
+import utils
 
 size = get_world_size()
 clear()
@@ -170,10 +170,11 @@ def move_abs_not_check(x, y):
 
 
 while True:
-    if zhong_zhi.cost(Entities.Apple, size**2):
+    if not utils.cost(Entities.Apple, size**2):
         for _ in range(3):
             print("error: No cactus.")
             do_a_flip()
+        break
 
     body_size = 1
     move_abs_not_check(0, 1)

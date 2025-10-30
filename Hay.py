@@ -2,7 +2,7 @@
 # 种: 草地、Entities.Grass
 # 收: Items.Hay
 
-import zhong_zhi
+import utils
 import go
 
 
@@ -13,7 +13,7 @@ def run(way, target=50000000):
     go.to()
     while True:
         for i in way:
-            zhong_zhi.shou_huo()
+            utils.shou_huo()
             move(i)
         if num_items(Items.Hay) >= target:
             break

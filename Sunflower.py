@@ -2,34 +2,40 @@
 # 种: Entities.Sunflower
 # 收: Items.Power
 
-import zhong_zhi
+import utils
 import go
 
 
 def run(way, target):
     area = get_world_size() ** 2
-    while num_items(Items.Power) < target and zhong_zhi.cost(Entities.Sunflower, area):
-        map = {7: [], 8: [], 9: [], 10: [], 11: [], 12: [], 13: [], 14: [], 15: []}
+    while num_items(Items.Power) < target and utils.cost(Entities.Sunflower, area):
+        map = {7: [], 8: [], 9: [], 10: [], 11: [], 12: [], 13: [], 14: []}
         for i in way:
-            zhong_zhi.dan_1(Entities.Sunflower)
+            utils.dan_1(Entities.Sunflower)
             move(i)
         for i in way:
             x = get_pos_x()
             y = get_pos_y()
-            map[measure()].append((x, y))
+            if measure() == 15:
+                utils.shou_huo()
+            else:
+                map[measure()].append((x, y))
             move(i)
-        for i in range(15, 6, -1):
+        for i in range(14, 6, -1):
             if not len(map[i]):
                 continue
             for j in map[i]:
                 x = j[0]
                 y = j[1]
                 go.to(x, y)
-                zhong_zhi.shou_huo()
+                utils.shou_huo()
         go.to()
 
 
 if __name__ == "__main__":
     import route
+    import plough
 
-    run(route.cycle())
+    plough.run(route.cycle())
+    go.to()
+    run(route.cycle(), 100 * utils.K)
