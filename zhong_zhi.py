@@ -1,3 +1,6 @@
+Watering = False
+
+
 def jiao_shui():
     if num_items(Items.Water) and get_water() <= 0.75:
         use_item(Items.Water)
@@ -8,6 +11,8 @@ def jiao_shui():
 def dan_1(pe):
     if get_entity_type() == None or get_entity_type() == Entities.Dead_Pumpkin:
         plant(pe)
+        if Watering:
+            jiao_shui()
         return True
     return False
 

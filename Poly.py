@@ -2,17 +2,17 @@ import go
 import zhong_zhi
 
 
-def run(way):
+def run(way,pe=Entities.Grass):
     PolyMap = {}
     while True:
         for i in way:
             coord = (get_pos_x(), get_pos_y())
             if coord in PolyMap:
-                pe = PolyMap.pop(coord)
+                poly = PolyMap.pop(coord)
             else:
-                pe = Entities.Grass
+                poly = pe
             zhong_zhi.shou_huo()
-            zhong_zhi.dan_1(pe)
+            zhong_zhi.dan_1(poly)
             if get_companion() != None:
                 poly, coord = get_companion()
                 PolyMap[coord] = poly

@@ -2,10 +2,9 @@ from direction import *
 import zhong_zhi
 import go
 
-
 def run(way):
-    side = get_world_size()
-    area = side**2
+    side=get_world_size()
+    area = side ** 2
     while num_items(Items.Cactus) < area and zhong_zhi.cost(Entities.Cactus, area):
         for _ in way:
             plant(Entities.Cactus)

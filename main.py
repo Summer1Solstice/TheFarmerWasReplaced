@@ -15,8 +15,8 @@ K = 1000  # 千
 M = 1000000  # 百万
 B = 1000000000  # 十亿
 
-set_world_size(12)
-
+set_world_size(10)
+zhong_zhi.Watering = True
 side = get_world_size()  # 地图边长
 area = side**2  # 地图面积
 

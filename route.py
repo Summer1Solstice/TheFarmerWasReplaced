@@ -1,12 +1,12 @@
 from direction import *
 
 
-def cycle(side=get_world_size()):
+def cycle(side=get_world_size()):   # 哈密尔顿回路
     if side % 2:
         return None
     result = [up]
     for i in range(side):
-        for ii in range(side - 2):
+        for _ in range(side - 2):
             if i % 2:
                 result.append(down)
             else:
@@ -25,10 +25,10 @@ def zigzag_Y(side=get_world_size()):
     result = []
     for x in range(side):
         if x % 2:
-            for y in range(side - 1):
+            for _ in range(side - 1):
                 result.append(down)
         else:
-            for y in range(side - 1):
+            for _ in range(side - 1):
                 result.append(up)
         result.append(right)
     return result
@@ -40,10 +40,10 @@ def zigzag_X(side=get_world_size()):
     result = []
     for y in range(side):
         if y % 2:
-            for x in range(side - 1):
+            for _ in range(side - 1):
                 result.append(left)
         else:
-            for x in range(side - 1):
+            for _ in range(side - 1):
                 result.append(right)
         result.append(up)
     return result
