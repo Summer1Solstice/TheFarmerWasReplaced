@@ -5,17 +5,19 @@
 import go
 import utils
 
+
 def run(way, target):
-    area = get_world_size() ** 2
     loop = 64
-    if area <= loop :
+    if utils.area <= loop:
         utils.Watering = True
     else:
-        loop = area * 0.2
+        loop = utils.area * 0.2
         if loop < 64:
             loop = 64
-    quick_print("loop:",loop)
-    while num_items(Items.Pumpkin) < target and utils.cost(Entities.Pumpkin, area):
+    quick_print("loop:", loop)
+    while num_items(Items.Pumpkin) < target and utils.cost(
+        Entities.Pumpkin, utils.area
+    ):
         for i in way:
             utils.shou_huo()
             utils.dan_1(Entities.Pumpkin)
@@ -53,10 +55,12 @@ def run(way, target):
 
         utils.shou_huo()
         go.to()
+    return Items.Pumpkin
 
 
 if __name__ == "__main__":
-    import route
-    import plough
-    plough.run(route.cycle())
-    run(route.cycle(),utils._unlock(Unlocks.Cactus))
+    
+    
+    if not utils.plough(utils.cycle()):        
+        go.to()
+    utils.loop(run, utils.cycle(), 10 * utils.K)

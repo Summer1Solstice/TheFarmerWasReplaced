@@ -6,36 +6,29 @@ import utils
 import go
 
 
-def run(way, target):
-    area = get_world_size() ** 2
-    while num_items(Items.Power) < target and utils.cost(Entities.Sunflower, area):
-        map = {7: [], 8: [], 9: [], 10: [], 11: [], 12: [], 13: [], 14: []}
-        for i in way:
-            utils.dan_1(Entities.Sunflower)
-            move(i)
-        for i in way:
-            x = get_pos_x()
-            y = get_pos_y()
-            if measure() == 15:
-                utils.shou_huo()
-            else:
-                map[measure()].append((x, y))
-            move(i)
-        for i in range(14, 6, -1):
-            if not len(map[i]):
-                continue
-            for j in map[i]:
-                x = j[0]
-                y = j[1]
-                go.to(x, y)
-                utils.shou_huo()
-        go.to()
+def run(way):
+    map = {7: [], 8: [], 9: [], 10: [], 11: [], 12: [], 13: [], 14: [], 15: []}
+    for i in way:
+        utils.dan_1(Entities.Sunflower)
+        x, y = get_pos_x(), get_pos_y()
+        map[measure()].append((x, y))
+        move(i)
+
+    for i in range(15, 6, -1):
+        if not len(map[i]):
+            continue
+        for j in map[i]:
+            x = j[0]
+            y = j[1]
+            go.to(x, y)
+            utils.shou_huo()
+    go.to()
+    return Items.Power
 
 
 if __name__ == "__main__":
-    import route
-    import plough
-
-    plough.run(route.cycle())
-    go.to()
-    run(route.cycle(), 100 * utils.K)
+    
+    
+    if not utils.plough(utils.cycle()):        
+        go.to()
+    utils.loop(run, utils.cycle(), 10 * utils.K)

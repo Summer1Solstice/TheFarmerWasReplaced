@@ -5,10 +5,8 @@
 import utils
 
 
-def run(way, target=50000000):
+def run(way, target):
     while True:
-        if num_items(Items.Wood) >= target:
-            return False
         for i in way:
             utils.shou_huo()
             x = get_pos_x()
@@ -18,9 +16,14 @@ def run(way, target=50000000):
             else:
                 utils.dan_1(Entities.Grass)
             move(i)
+        if target != None and num_items(Items.Wood) >= target:
+            return False
 
 
 if __name__ == "__main__":
-    import route
+    
+    import go
 
-    run(route.cycle())
+    if not utils.plough(utils.cycle()):
+        go.to()
+    run(utils.cycle(), 10 * utils.K)

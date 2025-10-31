@@ -20,11 +20,10 @@ def run(way,pe=Entities.Grass):
 
 
 if __name__ == "__main__":
-    import route
-    import plough
-
-    cycle = route.cycle()
-    if not plough.run(cycle):
+    
+    
+    cycle = utils.cycle()
+    if not utils.plough(cycle):
         go.to()
 
     run(cycle)

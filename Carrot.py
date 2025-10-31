@@ -5,8 +5,7 @@ import utils
 
 
 def run(way, target):
-    area = get_world_size() ** 2
-    while num_items(Items.Carrot) < target and utils.cost(Entities.Carrot, area):
+    while num_items(Items.Carrot) < target and utils.cost(Entities.Carrot, utils.area):
         for i in way:
             utils.shou_huo()
             utils.dan_1(Entities.Carrot)
@@ -14,6 +13,10 @@ def run(way, target):
 
 
 if __name__ == "__main__":
-    import route
+    
+        import go
 
-    run(route.cycle())
+    if not utils.plough(utils.cycle()):        
+        go.to()
+    run(utils.cycle(), 10 * utils.K)
+

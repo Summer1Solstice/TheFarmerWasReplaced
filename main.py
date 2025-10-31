@@ -1,9 +1,8 @@
 from direction import *  # 转换地图方向为屏幕方向
 import utils  # 种植、收获、浇水
-from utils import K, M, B
-import route  # 生成路径
+from utils import K, M, B, side, area
+
 import go  # 前往指定坐标
-import plough  # 耕地
 import Hay  # 草
 import Wood  # 木材种植、收获
 import Carrot  # 胡萝卜种植、收获
@@ -15,19 +14,17 @@ import Sunflower  # 向日葵种植、收获
 
 set_world_size(10)
 utils.Watering = True
-side = get_world_size()  # 地图边长
-area = side**2  # 地图面积
 
 # 寻路路径
-cycle = route.cycle()  # 环回路径
-zigzag_Y = route.zigzag_Y()  # Y轴蛇形路径
-zigzag_X = route.zigzag_X()  # X轴蛇形路径
-stair_X = route.stair_X()  # X轴楼梯路径
-stair_Y = route.stair_Y()  # Y轴楼梯路径
+cycle = utils.cycle()  # 环回路径
+zigzag_Y = utils.zigzag_Y()  # Y轴蛇形路径
+zigzag_X = utils.zigzag_X()  # X轴蛇形路径
+stair_X = utils.stair_X()  # X轴楼梯路径
+stair_Y = utils.stair_Y()  # Y轴楼梯路径
 
 
 def run():
-    plough.run(cycle)
+    utils.plough(cycle)
     do_a_flip()
 
     while True:

@@ -21,21 +21,16 @@ def to(x=0, y=0):
                 return False
 
 
-def edge(x=None, y=None):
-    if x == None:
-        x = get_pos_x()
-        if y == up:
-            y = get_world_size() - 1
-        elif y == down:
-            y = 0
-    elif y == None:
-        y = get_pos_y()
-        if x == right:
-            x = get_world_size() - 1
-        elif x == left:
-            x = 0
-    to(x, y)
-
+def edge(side):
+    if side == up:
+        return to(get_pos_x(), get_world_size() - 1)
+    if side == down:
+        return to(get_pos_x(), 0)
+    if side == left:
+        return to(0, get_pos_y())
+    if side == right:
+        return to(get_world_size() - 1, get_pos_y())
+    return False
 
 if __name__ == "__main__":
     to()

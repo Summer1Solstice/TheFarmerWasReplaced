@@ -6,7 +6,7 @@ import utils
 import go
 
 
-def run(way, target=50000000):
+def run(way, target):
     if num_items(Items.Hay) >= target:
         return False
     clear()
@@ -20,6 +20,9 @@ def run(way, target=50000000):
 
 
 if __name__ == "__main__":
-    import route
+    
+        import go
 
-    run(route.cycle())
+    if not utils.plough(utils.cycle()):        
+        go.to()
+    run(utils.cycle(), 10 * utils.K)
