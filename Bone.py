@@ -1,4 +1,7 @@
 import go
+import utils
+
+
 def run(way):
     change_hat(Hats.Dinosaur_Hat)
     go.to()
@@ -11,6 +14,4 @@ def run(way):
 
 
 if __name__ == "__main__":
-    
-
     run(utils.cycle())

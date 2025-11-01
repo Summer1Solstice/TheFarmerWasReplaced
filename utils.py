@@ -1,4 +1,4 @@
-from direction import *
+from directions import *
 import go
 
 K = 1000  # 千
@@ -9,6 +9,27 @@ Watering = False  # 是否需要浇灌
 
 side = get_world_size()  # 地图边长
 area = side**2  # 地图面积
+
+
+def update():
+    global side
+    global area
+    side = get_world_size()
+    area = side**2
+
+
+def plough(way):  # 耕种
+    if get_ground_type() == Grounds.Soil:
+        return False
+
+    go.to()
+    for i in way:
+        if get_ground_type() != Grounds.Soil:
+            till()
+        elif can_harvest():
+            harvest()
+        move(i)
+    return True
 
 
 def jiao_shui():  # 浇灌
@@ -89,9 +110,12 @@ def out(itme, target):  # 是否break
 
 def loop(func, way, target):  # 循环
     while True:
-        if out(func(way), target):
-            return True
-
+        var = func(way)
+        if var != False:
+            if out(var, target):
+                return True
+        else:
+            return False
 
 def cycle(side=get_world_size()):  # 哈密尔顿回路
     if side % 2:
@@ -157,17 +181,3 @@ def stair_Y(side=get_world_size()):  # 梯形
             result.append(up)
         result.append(right)
     return result
-
-
-def plough(way):  # 耕种
-    if get_ground_type() == Grounds.Soil:
-        return False
-
-    go.to()
-    for i in way:
-        if get_ground_type() != Grounds.Soil:
-            till()
-        elif can_harvest():
-            harvest()
-        move(i)
-    return True

@@ -2,7 +2,7 @@ import go
 import utils
 
 
-def run(way,pe=Entities.Grass):
+def run(way,pe=Entities.Carrot):
     PolyMap = {}
     while True:
         for i in way:
@@ -16,13 +16,13 @@ def run(way,pe=Entities.Grass):
             if get_companion() != None:
                 poly, coord = get_companion()
                 PolyMap[coord] = poly
+            else:
+                do_a_flip()
             move(i)
 
 
 if __name__ == "__main__":
-    
-    
-    cycle = utils.cycle()
+    cycle = utils.zigzag_X()
     if not utils.plough(cycle):
         go.to()
 

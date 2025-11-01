@@ -1,12 +1,12 @@
 # 仙人掌种植、收获
 # 种: Entities.Cactus
 # 收: Items.Cactus
-from direction import *
+from directions import *
 import utils
 import go
 
 
-def run(way):
+def v1(way):
     for _ in way:
         plant(Entities.Cactus)
         move(_)
@@ -35,10 +35,50 @@ def run(way):
     return Items.Cactus
 
 
-if __name__ == "__main__":
-    
-        import go
+def v2(way):  # 耗时比v1长，v了个什么玩意
+    go.to()
+    for i in way:
+        plant(Entities.Cactus)
+        move(i)
+    go.to()
+    # set_execution_speed(1)
+    for _ in range(utils.side):  # x
+        for i in range(utils.side - 1, 0, -1):
+            flag = False
+            for _ in range(i):
+                if measure() > measure(right):
+                    swap(right)
+                    flag = True
+                move(right)
+            go.edge(left)
+            if not flag:
+                break
+        move(up)
 
-    if not utils.plough(utils.cycle()):        
+    for _ in range(utils.side):  # y
+        for i in range(utils.side - 1, 0, -1):
+            flag = False
+            for _ in range(i):
+                if measure() > measure(up):
+                    swap(up)
+                    flag = True
+                move(up)
+            go.edge(down)
+            if not flag:
+                break
+        move(right)
+    utils.shou_huo()
+    return Items.Cactus
+
+
+def run(way):
+    return v1(way)
+
+
+if __name__ == "__main__":
+    # set_world_size(6)
+    utils.update()
+    if not utils.plough(utils.cycle()):
         go.to()
-    utils.loop(run, utils.cycle(), 10 * utils.K)
+    run(utils.cycle())
+    # utils.loop(run, utils.cycle(), 10 * utils.K)

@@ -1,4 +1,4 @@
-from direction import *
+from directions import *
 
 
 def to(x=0, y=0):

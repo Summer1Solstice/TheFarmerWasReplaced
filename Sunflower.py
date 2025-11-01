@@ -7,6 +7,8 @@ import go
 
 
 def run(way):
+    if not utils.cost(Entities.Sunflower, utils.area):
+        return False
     map = {7: [], 8: [], 9: [], 10: [], 11: [], 12: [], 13: [], 14: [], 15: []}
     for i in way:
         utils.dan_1(Entities.Sunflower)
@@ -27,8 +29,6 @@ def run(way):
 
 
 if __name__ == "__main__":
-    
-    
-    if not utils.plough(utils.cycle()):        
+    if not utils.plough(utils.cycle()):
         go.to()
     utils.loop(run, utils.cycle(), 10 * utils.K)

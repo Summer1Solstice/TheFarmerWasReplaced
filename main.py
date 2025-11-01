@@ -1,4 +1,4 @@
-from direction import *  # 转换地图方向为屏幕方向
+from directions import *  # 转换地图方向为屏幕方向
 import utils  # 种植、收获、浇水
 from utils import K, M, B, side, area
 

@@ -13,10 +13,8 @@ def run(way, target):
 
 
 if __name__ == "__main__":
-    
-        import go
+    import go
 
-    if not utils.plough(utils.cycle()):        
+    if not utils.plough(utils.cycle()):
         go.to()
     run(utils.cycle(), 10 * utils.K)
-
