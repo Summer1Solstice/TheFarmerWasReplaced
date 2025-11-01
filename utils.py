@@ -18,20 +18,34 @@ def update():
     area = side**2
 
 
-def plough(way):  # 耕种
+def plough(way):  # 耕地
     if get_ground_type() == Grounds.Soil:
         return False
 
     go.to()
     for i in way:
-        if get_ground_type() != Grounds.Soil:
+        if get_ground_type() == Grounds.Grassland:
             till()
         elif can_harvest():
             harvest()
         move(i)
     return True
 
-
+def _till(pe):  # 耕种
+    def foo():
+        for _ in range(side):
+            if get_ground_type() == Grounds.Grassland:
+                till()
+                _plant(pe)
+            else:
+                _plant(pe)
+            move(right)
+    go.to()
+    for _ in range(max_drones()):
+        if not spawn_drone(foo):
+            foo()
+        move(up)
+    go.to()
 def jiao_shui():  # 浇灌
     if num_items(Items.Water) and get_water() <= 0.75:
         use_item(Items.Water)
@@ -39,7 +53,7 @@ def jiao_shui():  # 浇灌
     return False
 
 
-def dan_1(pe):  # 种植
+def _plant(pe):  # 种植
     if get_entity_type() == None or get_entity_type() == Entities.Dead_Pumpkin:
         plant(pe)
         if Watering:
@@ -48,7 +62,7 @@ def dan_1(pe):  # 种植
     return False
 
 
-def shou_huo():  # 收获
+def _harvest():  # 收获
     if can_harvest():
         harvest()
         return True

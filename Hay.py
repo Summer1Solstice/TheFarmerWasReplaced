@@ -13,7 +13,7 @@ def run(way, target):
     go.to()
     while True:
         for i in way:
-            utils.shou_huo()
+            utils._harvest()
             move(i)
         if num_items(Items.Hay) >= target:
             break

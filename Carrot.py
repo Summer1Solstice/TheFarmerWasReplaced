@@ -7,8 +7,8 @@ import utils
 def run(way, target):
     while num_items(Items.Carrot) < target and utils.cost(Entities.Carrot, utils.area):
         for i in way:
-            utils.shou_huo()
-            utils.dan_1(Entities.Carrot)
+            utils._harvest()
+            utils._plant(Entities.Carrot)
             move(i)
 
 

@@ -17,15 +17,15 @@ def run(way):
         if loop < 64:
             loop = 64
         for i in way:
-            utils.shou_huo()
-            utils.dan_1(Entities.Pumpkin)
+            utils._harvest()
+            utils._plant(Entities.Pumpkin)
             move(i)
 
     array = []
     for i in way:
         x = get_pos_x()
         y = get_pos_y()
-        if utils.dan_1(Entities.Pumpkin) or not can_harvest():
+        if utils._plant(Entities.Pumpkin) or not can_harvest():
             array.append((x, y))
         move(i)
 
@@ -35,7 +35,7 @@ def run(way):
             x = i[0]
             y = i[1]
             go.to(x, y)
-            if utils.dan_1(Entities.Pumpkin) or not can_harvest():
+            if utils._plant(Entities.Pumpkin) or not can_harvest():
                 temp.append(i)
         array = temp
 
@@ -45,13 +45,13 @@ def run(way):
         go.to(x, y)
         while True:
             if get_entity_type() == Entities.Dead_Pumpkin:
-                utils.dan_1(Entities.Pumpkin)
+                utils._plant(Entities.Pumpkin)
             if not can_harvest():
                 use_item(Items.Fertilizer)
             else:
                 break
 
-    utils.shou_huo()
+    utils._harvest()
     go.to()
     return Items.Pumpkin
 

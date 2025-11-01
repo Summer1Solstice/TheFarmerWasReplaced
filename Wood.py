@@ -8,13 +8,13 @@ import utils
 def run(way, target):
     while True:
         for i in way:
-            utils.shou_huo()
+            utils._harvest()
             x = get_pos_x()
             y = get_pos_y()
             if (x + y) % 2:
-                utils.dan_1(Entities.Tree)
+                utils._plant(Entities.Tree)
             else:
-                utils.dan_1(Entities.Grass)
+                utils._plant(Entities.Grass)
             move(i)
         if target != None and num_items(Items.Wood) >= target:
             return False

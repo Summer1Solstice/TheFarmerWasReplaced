@@ -20,7 +20,7 @@ def run(way):
             move(up)
     go.to()
     for i in way:
-        utils.shou_huo()
+        utils._harvest()
         move(i)
     return Items.Weird_Substance
 

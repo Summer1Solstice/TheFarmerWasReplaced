@@ -11,8 +11,8 @@ def run(way,pe=Entities.Carrot):
                 poly = PolyMap.pop(coord)
             else:
                 poly = pe
-            utils.shou_huo()
-            utils.dan_1(poly)
+            utils._harvest()
+            utils._plant(poly)
             if get_companion() != None:
                 poly, coord = get_companion()
                 PolyMap[coord] = poly

@@ -12,9 +12,6 @@ import Bone  # 骨、贪吃蛇
 import Sunflower  # 向日葵种植、收获
 
 
-set_world_size(10)
-utils.Watering = True
-
 # 寻路路径
 cycle = utils.cycle()  # 环回路径
 zigzag_Y = utils.zigzag_Y()  # Y轴蛇形路径

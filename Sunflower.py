@@ -11,7 +11,7 @@ def run(way):
         return False
     map = {7: [], 8: [], 9: [], 10: [], 11: [], 12: [], 13: [], 14: [], 15: []}
     for i in way:
-        utils.dan_1(Entities.Sunflower)
+        utils._plant(Entities.Sunflower)
         x, y = get_pos_x(), get_pos_y()
         map[measure()].append((x, y))
         move(i)
@@ -23,7 +23,7 @@ def run(way):
             x = j[0]
             y = j[1]
             go.to(x, y)
-            utils.shou_huo()
+            utils._harvest()
     go.to()
     return Items.Power
 

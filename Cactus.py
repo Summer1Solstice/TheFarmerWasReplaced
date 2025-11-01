@@ -6,7 +6,7 @@ import utils
 import go
 
 
-def v1(way):
+def run(way):
     for _ in way:
         plant(Entities.Cactus)
         move(_)
@@ -30,54 +30,12 @@ def v1(way):
                 swap(up)
             move(i)
         if not flag:
-            utils.shou_huo()
+            utils._harvest()
             go.to()
     return Items.Cactus
 
 
-def v2(way):  # 耗时比v1长，v了个什么玩意
-    go.to()
-    for i in way:
-        plant(Entities.Cactus)
-        move(i)
-    go.to()
-    # set_execution_speed(1)
-    for _ in range(utils.side):  # x
-        for i in range(utils.side - 1, 0, -1):
-            flag = False
-            for _ in range(i):
-                if measure() > measure(right):
-                    swap(right)
-                    flag = True
-                move(right)
-            go.edge(left)
-            if not flag:
-                break
-        move(up)
-
-    for _ in range(utils.side):  # y
-        for i in range(utils.side - 1, 0, -1):
-            flag = False
-            for _ in range(i):
-                if measure() > measure(up):
-                    swap(up)
-                    flag = True
-                move(up)
-            go.edge(down)
-            if not flag:
-                break
-        move(right)
-    utils.shou_huo()
-    return Items.Cactus
-
-
-def run(way):
-    return v1(way)
-
-
 if __name__ == "__main__":
-    # set_world_size(6)
-    utils.update()
     if not utils.plough(utils.cycle()):
         go.to()
     run(utils.cycle())
