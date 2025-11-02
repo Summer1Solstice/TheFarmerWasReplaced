@@ -57,6 +57,9 @@ def run(way):
 
 
 if __name__ == "__main__":
-    if not utils.plough(utils.cycle()):
-        go.to()
+    set_world_size(6)
+    for i in utils.cycle():
+        utils._till()
+        utils._plant(Entities.Pumpkin)
+        move(i)
     utils.loop(run, utils.cycle(), 10 * utils.K)

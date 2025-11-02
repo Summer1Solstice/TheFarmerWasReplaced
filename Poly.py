@@ -23,7 +23,9 @@ def run(way,pe=Entities.Carrot):
 
 if __name__ == "__main__":
     cycle = utils.zigzag_X()
-    if not utils.plough(cycle):
-        go.to()
+    for i in cycle:
+        utils._till()
+        utils._plant(Entities.Carrot)
+        move(i)
 
     run(cycle)

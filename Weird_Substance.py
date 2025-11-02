@@ -26,4 +26,4 @@ def run(way):
 
 
 if __name__ == "__main__":
-    run(utils.zigzag_X())
+    utils.loop(run, utils.zigzag_X(), 500 * utils.M)

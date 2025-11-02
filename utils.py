@@ -18,46 +18,26 @@ def update():
     area = side**2
 
 
-def plough(way):  # 耕地
-    if get_ground_type() == Grounds.Soil:
-        return False
-
-    go.to()
-    for i in way:
-        if get_ground_type() == Grounds.Grassland:
-            till()
-        elif can_harvest():
-            harvest()
-        move(i)
+def _till():  # 只耕地
+    if get_ground_type() == Grounds.Grassland:
+        till()
+    elif can_harvest():
+        harvest()
     return True
 
-def _till(pe):  # 耕种
-    def foo():
-        for _ in range(side):
-            if get_ground_type() == Grounds.Grassland:
-                till()
-                _plant(pe)
-            else:
-                _plant(pe)
-            move(right)
-    go.to()
-    for _ in range(max_drones()):
-        if not spawn_drone(foo):
-            foo()
-        move(up)
-    go.to()
-def jiao_shui():  # 浇灌
-    if num_items(Items.Water) and get_water() <= 0.75:
-        use_item(Items.Water)
+
+def _plant(pe):  # 只种植
+    if get_entity_type() == None or get_entity_type() == Entities.Dead_Pumpkin:
+        plant(pe)
+        if Watering == True:
+            jiao_shui()
         return True
     return False
 
 
-def _plant(pe):  # 种植
-    if get_entity_type() == None or get_entity_type() == Entities.Dead_Pumpkin:
-        plant(pe)
-        if Watering:
-            jiao_shui()
+def jiao_shui():  # 浇灌
+    if num_items(Items.Water) and get_water() <= 0.75:
+        use_item(Items.Water)
         return True
     return False
 
@@ -124,12 +104,16 @@ def out(itme, target):  # 是否break
 
 def loop(func, way, target):  # 循环
     while True:
-        var = func(way)
+        if way == None:
+            var = func()
+        else:
+            var = func(way)
         if var != False:
             if out(var, target):
                 return True
         else:
             return False
+
 
 def cycle(side=get_world_size()):  # 哈密尔顿回路
     if side % 2:

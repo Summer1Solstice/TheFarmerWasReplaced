@@ -33,7 +33,6 @@ def sort_Y():
 
 
 def run():
-    utils._till(Entities.Cactus)
     go.to()
     move_val = up
     for fn in [sort_X, sort_Y]:
@@ -51,4 +50,15 @@ def run():
 
 
 if __name__ == "__main__":
+
+    def foo():
+        for _ in range(utils.side):
+            utils._till()
+            utils._plant(Entities.Cactus)
+            move(up)
+
+    for _ in range(max_drones()):
+        if not spawn_drone(foo):
+            foo()
+        move(right)
     run()

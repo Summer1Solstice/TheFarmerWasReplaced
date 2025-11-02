@@ -36,7 +36,9 @@ def run(way):
 
 
 if __name__ == "__main__":
-    if not utils.plough(utils.cycle()):
-        go.to()
+    for i in utils.cycle():
+        utils._till()
+        move(i)
+    go.to()
     run(utils.cycle())
     # utils.loop(run, utils.cycle(), 10 * utils.K)
