@@ -1,21 +1,10 @@
 from directions import *
-import go
 
 K = 1000  # 千
 M = 1000000  # 百万
 B = 1000000000  # 十亿
 
 Watering = False  # 是否需要浇灌
-
-side = get_world_size()  # 地图边长
-area = side**2  # 地图面积
-
-
-def update():
-    global side
-    global area
-    side = get_world_size()
-    area = side**2
 
 
 def _till():  # 只耕地
@@ -41,6 +30,11 @@ def jiao_shui():  # 浇灌
         return True
     return False
 
+def fertilize():  # 施肥
+    if not can_harvest():
+        use_item(Items.Fertilizer)
+        return True
+    return False
 
 def _harvest():  # 收获
     if can_harvest():
@@ -49,7 +43,7 @@ def _harvest():  # 收获
     return False
 
 
-def cost(pe, area):  # 成本
+def cost(pe, area=get_world_size() ** 2):  # 成本
     map = get_cost(pe)
     for i in map:
         if num_items(i) <= (map[i] * area):
@@ -57,11 +51,6 @@ def cost(pe, area):  # 成本
     return True
 
 
-def fertilize():  # 施肥
-    if not can_harvest():
-        use_item(Items.Fertilizer)
-        return True
-    return False
 
 
 def _unlock(item):  # 解锁费用
@@ -178,4 +167,13 @@ def stair_Y(side=get_world_size()):  # 梯形
         for _ in range(side):
             result.append(up)
         result.append(right)
+    return result
+
+
+def line(direction, len=get_world_size()):  # 直线
+    result = []
+    if not (direction in [North, South, West, East]):
+        return None
+    for _ in range(len):
+        result.append(direction)
     return result

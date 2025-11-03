@@ -5,20 +5,24 @@
 import utils
 import go
 
+_Entitie = Entities.Grass
+_Item = Items.Hay
+
 
 def run(way, target):
-    if num_items(Items.Hay) >= target:
-        return False
-    clear()
-    go.to()
     while True:
         for i in way:
             utils._harvest()
             move(i)
-        if num_items(Items.Hay) >= target:
-            break
+        if utils.out(_Item,target):
+            return _Item
+
+
+def main():
+    way = utils.cycle()
+    clear()
+    run(way, None)
 
 
 if __name__ == "__main__":
-    go.to()
-    run(utils.cycle(), 10 * utils.K)
+    main()

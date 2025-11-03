@@ -29,9 +29,14 @@ def run(way):
 
 
 if __name__ == "__main__":
-    for i in utils.cycle():
-        utils._till()
-        utils._plant(Entities.Cactus)
-        move(i)
+    def foo():
+        for _ in range(utils.side):
+            utils._till()
+            move(North)
+
+    for _ in range(utils.side):
+        if not spawn_drone(foo):
+            foo()
+        move(East)
     go.to()
-    utils.loop(run, utils.cycle(), 10 * utils.K)
+    utils.loop(run, utils.cycle(), 1 * utils.M)

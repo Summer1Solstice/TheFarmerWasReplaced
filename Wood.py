@@ -1,8 +1,11 @@
 # 木材种植、收获
-# 种: Entities.Wood
+# 种: Entities.Tree
 # 收: Items.Wood
 
 import utils
+
+_Entitie = Entities.Tree
+_Item = Items.Wood
 
 
 def run(way, target):
@@ -12,21 +15,22 @@ def run(way, target):
             x = get_pos_x()
             y = get_pos_y()
             if (x + y) % 2:
-                utils._plant(Entities.Tree)
+                utils._plant(_Entitie)
             else:
                 utils._plant(Entities.Grass)
             move(i)
-        if target != None and num_items(Items.Wood) >= target:
-            return False
+        if utils.out(_Item, target):
+            return _Item
+
+
+def main():
+    clear()
+    way = utils.cycle()
+    for i in way:
+        utils._till()
+        move(i)
+    run(way, None)
 
 
 if __name__ == "__main__":
-    
-    import go
-
-    for i in utils.cycle():
-        utils._till()
-        utils._plant(Entities.Cactus)
-        move(i)
-    go.to()
-    run(utils.cycle(), 10 * utils.K)
+    main()

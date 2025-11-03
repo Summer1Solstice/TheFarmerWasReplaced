@@ -25,7 +25,6 @@ if __name__ == "__main__":
     cycle = utils.zigzag_X()
     for i in cycle:
         utils._till()
-        utils._plant(Entities.Carrot)
         move(i)
 
     run(cycle)

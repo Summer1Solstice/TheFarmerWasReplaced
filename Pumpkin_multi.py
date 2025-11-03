@@ -1,23 +1,26 @@
+from directions import *
 import utils
 import go
 
+_Entitie = Entities.Pumpkin
+_Item = Items.Pumpkin
+target = 1 * utils.B
 
-def run(way):
+def run(way=utils.cycle(6)):
     origin = (get_pos_x(), get_pos_y())
-    for i in way:
+    for _ in way:
         utils._till()
-        utils._plant(Entities.Pumpkin)
-        move(i)
-    while utils.cost(Entities.Pumpkin, 36):
+        move(_)
+    while utils.cost(_Entitie, 36):
         for i in way:
-            utils._plant(Entities.Pumpkin)
+            utils._plant(_Entitie)
             move(i)
 
         array = []
         for i in way:
             x = get_pos_x()
             y = get_pos_y()
-            if utils._plant(Entities.Pumpkin) or not can_harvest():
+            if utils._plant(_Entitie) or not can_harvest():
                 array.append((x, y))
             move(i)
 
@@ -27,7 +30,7 @@ def run(way):
             go.to(x, y)
             while True:
                 if get_entity_type() == Entities.Dead_Pumpkin:
-                    utils._plant(Entities.Pumpkin)
+                    utils._plant(_Entitie)
                 if not can_harvest():
                     use_item(Items.Fertilizer)
                 else:
@@ -35,23 +38,36 @@ def run(way):
 
         utils._harvest()
         go.to(origin[0], origin[1])
-        if utils.out(Items.Pumpkin, 1 * utils.B):
-            return Items.Pumpkin
+        if utils.out(_Item, target):
+            return _Item
+
+
+def main():
+    clear()
+    utils.Watering = True
+    array = [
+        (0, 7),
+        (0, 14),
+        (0, 21),
+        (7, 21),
+        (7, 14),
+        (7, 7),
+        (14, 7),
+        (14, 14),
+        (14, 21),
+        (21, 21),
+        (21, 14),
+        (21, 7),
+        (21, 0),
+        (14, 0),
+        (7, 0),
+        (0, 0),
+    ]
+    for i in array:
+        go.to(i[0], i[1])
+        if not spawn_drone(run):
+            run()
 
 
 if __name__ == "__main__":
-    clear()
-    utils.Watering = True
-    array = []
-    for x in [0, 7, 14, 21]:
-        for y in [0, 7, 14, 21]:
-            array.append((x, y))
-
-    def foo():
-        return run(utils.cycle(6))
-
-    for _ in range(len(array)):
-        x,y = array.pop()
-        go.to(x,y)
-        if not spawn_drone(foo):
-            foo()
+    main()

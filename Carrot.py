@@ -3,21 +3,25 @@
 # 收: Items.Carrot
 import utils
 
+_Entitie = Entities.Carrot
+_Item = Items.Carrot
 
-def run(way, target):
-    while num_items(Items.Carrot) < target and utils.cost(Entities.Carrot, utils.area):
+def run(way,target):
+    while utils.cost(_Entitie):
         for i in way:
             utils._harvest()
-            utils._plant(Entities.Carrot)
+            utils._plant(_Entitie)
             move(i)
-
-
-if __name__ == "__main__":
-    import go
-
-    for i in utils.cycle():
+        if utils.out(_Item,target):
+            return _Item
+        
+def main():
+    clear()
+    way = utils.cycle()
+    for i in way:
         utils._till()
-        utils._plant(Entities.Cactus)
         move(i)
-    go.to()
-    run(utils.cycle(), 10 * utils.K)
+    run(way,None)
+
+if __name__ == '__main__':
+    main()
