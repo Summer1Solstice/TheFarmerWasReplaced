@@ -1,5 +1,4 @@
 *.*
 !*.py
 __builtins__.py
-test.*
 *.txt

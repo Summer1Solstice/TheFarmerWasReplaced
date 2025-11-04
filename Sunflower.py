@@ -5,13 +5,17 @@
 import utils
 import go
 
+_Entitie = Entities.Sunflower
+_Item = Items.Power
+side = get_world_size()
+
 
 def run(way):
-    if not utils.cost(Entities.Sunflower, utils.area):
+    if not utils.cost(_Entitie):
         return False
     map = {7: [], 8: [], 9: [], 10: [], 11: [], 12: [], 13: [], 14: [], 15: []}
     for i in way:
-        utils._plant(Entities.Sunflower)
+        utils._plant(_Entitie)
         x, y = get_pos_x(), get_pos_y()
         map[measure()].append((x, y))
         move(i)
@@ -25,18 +29,17 @@ def run(way):
             go.to(x, y)
             utils._harvest()
     go.to()
-    return Items.Power
+    return _Item
+
+
+def mian():
+    clear()
+    way = utils.cycle()
+    for i in way:
+        utils._till()
+        move(i)
+    utils.loop(run, way, 1 * utils.M)
 
 
 if __name__ == "__main__":
-    def foo():
-        for _ in range(utils.side):
-            utils._till()
-            move(North)
-
-    for _ in range(utils.side):
-        if not spawn_drone(foo):
-            foo()
-        move(East)
-    go.to()
-    utils.loop(run, utils.cycle(), 1 * utils.M)
+    mian()

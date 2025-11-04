@@ -1,4 +1,5 @@
 from directions import *
+import go
 
 K = 1000  # 千
 M = 1000000  # 百万
@@ -7,12 +8,37 @@ B = 1000000000  # 十亿
 Watering = False  # 是否需要浇灌
 
 
+def Assign(Func):
+    go.to()
+    drone_list = []
+    for _ in range(max_drones()):
+        drone = spawn_drone(Func)
+        if drone:
+            drone_list.append(drone)
+        else:
+            Func()
+        move(right)
+    go.to()
+    while num_drones() != 1:
+        pass
+    return drone_list
+
+
 def _till():  # 只耕地
     if get_ground_type() == Grounds.Grassland:
         till()
     elif can_harvest():
         harvest()
     return True
+
+
+def _till_multi():
+    def foo():
+        for i in range(get_world_size()):
+            till()
+            move(up)
+
+    return Assign(foo)
 
 
 def _plant(pe):  # 只种植
@@ -24,17 +50,28 @@ def _plant(pe):  # 只种植
     return False
 
 
+def _plant_multi(pe):  # 只种植
+    def foo():
+        for _ in range(get_world_size()):
+            plant(pe)
+            move(up)
+
+    return Assign(foo)
+
+
 def jiao_shui():  # 浇灌
     if num_items(Items.Water) and get_water() <= 0.75:
         use_item(Items.Water)
         return True
     return False
 
+
 def fertilize():  # 施肥
     if not can_harvest():
         use_item(Items.Fertilizer)
         return True
     return False
+
 
 def _harvest():  # 收获
     if can_harvest():
@@ -49,8 +86,6 @@ def cost(pe, area=get_world_size() ** 2):  # 成本
         if num_items(i) <= (map[i] * area):
             return False
     return True
-
-
 
 
 def _unlock(item):  # 解锁费用
