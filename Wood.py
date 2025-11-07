@@ -17,20 +17,31 @@ def run(way, target):
             if (x + y) % 2:
                 utils._plant(_Entitie)
             else:
-                utils._plant(Entities.Grass)
+                utils._plant(Entities.Bush)
             move(i)
-        if utils.out(_Item, target):
+        if utils.quit(_Item, target):
             return _Item
 
 
 def main():
     clear()
     way = utils.cycle()
-    for i in way:
-        utils._till()
-        move(i)
     run(way, None)
 
 
+def main_multi():
+    if not utils.UAVx32():
+        return False
+    clear()
+    way = utils.line()
+    utils.Watering = True
+
+    def work():
+        return run(way, None)
+
+    utils.Assign(work)
+
+
 if __name__ == "__main__":
-    main()
+    if utils.cost(_Entitie):
+        main()

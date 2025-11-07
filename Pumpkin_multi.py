@@ -1,12 +1,12 @@
-from directions import *
+from constants import *
 import utils
 import go
 
 _Entitie = Entities.Pumpkin
 _Item = Items.Pumpkin
-target = 1 * utils.B
 
-def run(way=utils.cycle(6)):
+
+def run(way, target):
     origin = (get_pos_x(), get_pos_y())
     for _ in way:
         utils._till()
@@ -38,11 +38,13 @@ def run(way=utils.cycle(6)):
 
         utils._harvest()
         go.to(origin[0], origin[1])
-        if utils.out(_Item, target):
+        if utils.quit(_Item, target):
             return _Item
 
 
 def main():
+    if not utils.UAVx32():
+        return False
     clear()
     utils.Watering = True
     array = [
@@ -63,11 +65,18 @@ def main():
         (7, 0),
         (0, 0),
     ]
+    way = utils.cycle(6)
+    target = 1 * M
+
+    def work():
+        return run(way, target)
+
     for i in array:
         go.to(i[0], i[1])
-        if not spawn_drone(run):
-            run()
+        if not spawn_drone(work):
+            work()
 
 
 if __name__ == "__main__":
-    main()
+    if utils.cost(_Entitie):
+        main()

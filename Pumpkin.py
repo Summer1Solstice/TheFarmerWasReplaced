@@ -10,8 +10,6 @@ _Item = Items.Pumpkin
 
 
 def run(way):
-    if not utils.cost(_Entitie):
-        return False
     for i in way:
         utils._plant(_Entitie)
         move(i)
@@ -53,11 +51,10 @@ def run(way):
 def main():
     clear()
     way = utils.cycle()
-    for i in way:
-        utils._till()
-        move(i)
-    run(way)
+    utils._till_all(way)
+    utils.loop(run, way, None)
 
 
 if __name__ == "__main__":
-    main()
+    if utils.cost(_Entitie):
+        main()

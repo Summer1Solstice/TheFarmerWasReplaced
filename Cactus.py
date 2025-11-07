@@ -1,13 +1,12 @@
 # 仙人掌种植、收获
 # 种: Entities.Cactus
 # 收: Items.Cactus
-from directions import *
+from constants import *
 import utils
 import go
 
 _Entitie = Entities.Cactus
 _Item = Items.Cactus
-side = get_world_size()
 
 
 def run(way):
@@ -26,10 +25,10 @@ def run(way):
             if measure() < measure(down) and y != 0:
                 flag = True
                 swap(down)
-            if measure() > measure(right) and x != side - 1:
+            if measure() > measure(right) and x != get_world_size() - 1:
                 flag = True
                 swap(right)
-            if measure() > measure(up) and y != side - 1:
+            if measure() > measure(up) and y != get_world_size() - 1:
                 flag = True
                 swap(up)
             move(i)
@@ -40,12 +39,14 @@ def run(way):
 
 
 def main():
+    if not utils.cost(_Entitie):
+        return False
+    clear()
     way = utils.cycle()
-    for i in way:
-        utils._till()
-        move(i)
+    utils._till_all(way)
     run(way)
 
 
 if __name__ == "__main__":
-    main()
+    if utils.cost(_Entitie):
+        main()

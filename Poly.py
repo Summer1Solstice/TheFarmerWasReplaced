@@ -1,8 +1,7 @@
-import go
 import utils
 
 
-def run(way,pe=Entities.Carrot):
+def run(way, pe=Entities.Bush):
     PolyMap = {}
     while True:
         for i in way:
@@ -21,10 +20,11 @@ def run(way,pe=Entities.Carrot):
             move(i)
 
 
-if __name__ == "__main__":
-    cycle = utils.zigzag_X()
-    for i in cycle:
-        utils._till()
-        move(i)
+def main():
+    way = utils.zigzag_X()
+    utils._till_all(way)
+    run(way)
 
-    run(cycle)
+
+if __name__ == "__main__":
+    main()

@@ -7,7 +7,6 @@ import go
 
 _Entitie = Entities.Sunflower
 _Item = Items.Power
-side = get_world_size()
 
 
 def run(way):
@@ -32,14 +31,13 @@ def run(way):
     return _Item
 
 
-def mian():
+def main():
     clear()
     way = utils.cycle()
-    for i in way:
-        utils._till()
-        move(i)
+    utils._till_all(way)
     utils.loop(run, way, 1 * utils.M)
 
 
 if __name__ == "__main__":
-    mian()
+    if utils.cost(_Entitie):
+        main()

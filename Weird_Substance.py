@@ -1,10 +1,9 @@
-from directions import *
+from constants import *
 import utils
 import go
 
 
 def run(way):
-    clear()
     for y in range(utils.side):
         if not y % 2:
             for x in range(utils.side):
@@ -25,5 +24,11 @@ def run(way):
     return Items.Weird_Substance
 
 
+def main():
+    clear()
+    utils.loop(run, utils.cycle(), 1 * M)
+
+
 if __name__ == "__main__":
-    utils.loop(run, utils.zigzag_X(), 500 * utils.M)
+    if num_items(Items.Weird_Substance) > 155:
+        main()

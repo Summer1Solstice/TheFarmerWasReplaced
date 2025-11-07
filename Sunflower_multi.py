@@ -1,46 +1,49 @@
 # 向日葵种植、收获
 # 种: Entities.Sunflower
 # 收: Items.Power
-from directions import *
+from constants import *
 import utils
 import go
 
 _Entitie = Entities.Sunflower
 _Item = Items.Power
-side = get_world_size()
 map = {7: [], 8: [], 9: [], 10: [], 11: [], 12: [], 13: [], 14: [], 15: []}
 
 
 def _plant():
     global map
 
-    def foo():
-        for _ in range(side):
+    def work():
+        for _ in range(get_world_size()):
             utils._plant(_Entitie)
             map[measure()].append((get_pos_x(), get_pos_y()))
             move(up)
         return map
 
-    return utils.Assign(foo)
+    return utils.Assign(work)
+
 
 def _harvest(petal):
     global map
-    def foo():
+
+    def work():
         for i in map[petal]:
             if i[0] == get_pos_x():
                 go.to(i[0], i[1])
                 utils._harvest()
         return True
-    return utils.Assign(foo)
-def run(way):
+
+    return utils.Assign(work)
+
+
+def run():
     global map
-    _power = num_items(_Item)
     drone_list = _plant()
     # 合并map
     for i in range(len(drone_list) - 1, -1, -1):
         m = wait_for(drone_list[i])
         for j in m:
-                map[j] += m[j]
+            map[j] += m[j]
     go.to()
     for i in range(7):
         do_a_flip()
@@ -48,16 +51,17 @@ def run(way):
         _harvest(i)
         map[i] = []
     go.to()
-    quick_print(num_items(_Item) - _power)
     return _Item
 
 
-def mian():
+def main():
+    if not utils.UAVx32():
+        return False
     clear()
-    way = utils.cycle()
     utils._till_multi()
-    utils.loop(run, way, 1 * utils.M)
+    utils.loop(run, None, 1 * utils.M)
 
 
 if __name__ == "__main__":
-    mian()
+    if utils.cost(_Entitie):
+        main()
