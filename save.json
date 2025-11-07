@@ -1,0 +1,634 @@
+{
+    "items": {
+        "serializeList": [
+            {
+                "name": "hay",
+                "nr": 761349238.0
+            },
+            {
+                "name": "wood",
+                "nr": 4693410011.0
+            },
+            {
+                "name": "carrot",
+                "nr": 946496063.0
+            },
+            {
+                "name": "pumpkin",
+                "nr": 999417879.0
+            },
+            {
+                "name": "cactus",
+                "nr": 53494015.0
+            },
+            {
+                "name": "bone",
+                "nr": 38037.0
+            },
+            {
+                "name": "weird_substance",
+                "nr": 527298599.0
+            },
+            {
+                "name": "gold",
+                "nr": 386725.0
+            },
+            {
+                "name": "water",
+                "nr": 7824053.0
+            },
+            {
+                "name": "fertilizer",
+                "nr": 253463.0
+            },
+            {
+                "name": "power",
+                "nr": 849544.485833992
+            }
+        ]
+    },
+    "dockedFiles": [
+        {
+            "key": "Bone",
+            "value": "Sunflower"
+        },
+        {
+            "key": "Carrot",
+            "value": "Wood"
+        },
+        {
+            "key": "go",
+            "value": "constants"
+        },
+        {
+            "key": "Hay",
+            "value": "Carrot"
+        },
+        {
+            "key": "Poly",
+            "value": "Weird_Substance"
+        },
+        {
+            "key": "Pumpkin",
+            "value": "Hay"
+        },
+        {
+            "key": "Pumpkin_multi",
+            "value": "Cactus_multi"
+        },
+        {
+            "key": "route",
+            "value": "utils"
+        },
+        {
+            "key": "snake_v2",
+            "value": "gold_dfs"
+        },
+        {
+            "key": "Sunflower",
+            "value": "Pumpkin"
+        },
+        {
+            "key": "Sunflower_multi",
+            "value": "Pumpkin_multi"
+        },
+        {
+            "key": "utils",
+            "value": "go"
+        },
+        {
+            "key": "Weird_Substance",
+            "value": "Bone"
+        },
+        {
+            "key": "Wood",
+            "value": "Cactus"
+        }
+    ],
+    "minimizedFiles": [
+        "Bone",
+        "Cactus",
+        "Cactus_multi",
+        "Carrot",
+        "constants",
+        "go",
+        "gold_dfs",
+        "Hay",
+        "Poly",
+        "Pumpkin",
+        "Pumpkin_multi",
+        "route",
+        "snake_v2",
+        "Sunflower",
+        "Sunflower_multi",
+        "utils",
+        "Weird_Substance",
+        "Wood"
+    ],
+    "openFilePositions": [
+        {
+            "key": "Bone",
+            "value": {
+                "x": 1502.0709228515625,
+                "y": 1379.943603515625
+            }
+        },
+        {
+            "key": "Cactus",
+            "value": {
+                "x": -489.1611328125,
+                "y": 1503.374755859375
+            }
+        },
+        {
+            "key": "Cactus_multi",
+            "value": {
+                "x": -489.065185546875,
+                "y": 904.8905029296875
+            }
+        },
+        {
+            "key": "Carrot",
+            "value": {
+                "x": 1502.0709228515625,
+                "y": 1379.943603515625
+            }
+        },
+        {
+            "key": "constants",
+            "value": {
+                "x": -994.9862060546875,
+                "y": 1320.5684814453125
+            }
+        },
+        {
+            "key": "go",
+            "value": {
+                "x": 1502.0709228515625,
+                "y": 1379.943603515625
+            }
+        },
+        {
+            "key": "gold_dfs",
+            "value": {
+                "x": -995.8575439453125,
+                "y": 1490.6881103515625
+            }
+        },
+        {
+            "key": "Hay",
+            "value": {
+                "x": 1502.0709228515625,
+                "y": 1379.943603515625
+            }
+        },
+        {
+            "key": "Poly",
+            "value": {
+                "x": 1502.0709228515625,
+                "y": 1379.943603515625
+            }
+        },
+        {
+            "key": "Pumpkin",
+            "value": {
+                "x": 1502.0709228515625,
+                "y": 1379.943603515625
+            }
+        },
+        {
+            "key": "Pumpkin_multi",
+            "value": {
+                "x": 1502.0709228515625,
+                "y": 1379.943603515625
+            }
+        },
+        {
+            "key": "route",
+            "value": {
+                "x": 1502.0709228515625,
+                "y": 1379.943603515625
+            }
+        },
+        {
+            "key": "snake_v2",
+            "value": {
+                "x": 1502.0709228515625,
+                "y": 1379.943603515625
+            }
+        },
+        {
+            "key": "Sunflower",
+            "value": {
+                "x": 1502.0709228515625,
+                "y": 1379.943603515625
+            }
+        },
+        {
+            "key": "Sunflower_multi",
+            "value": {
+                "x": 1502.0709228515625,
+                "y": 1379.943603515625
+            }
+        },
+        {
+            "key": "TEST",
+            "value": {
+                "x": 193.8436279296875,
+                "y": -120.112548828125
+            }
+        },
+        {
+            "key": "utils",
+            "value": {
+                "x": 1502.0709228515625,
+                "y": 1379.943603515625
+            }
+        },
+        {
+            "key": "Weird_Substance",
+            "value": {
+                "x": 1502.0709228515625,
+                "y": 1379.943603515625
+            }
+        },
+        {
+            "key": "Wood",
+            "value": {
+                "x": 1502.0709228515625,
+                "y": 1379.943603515625
+            }
+        }
+    ],
+    "openFileScrollPositions": [
+        {
+            "key": "Bone",
+            "value": 0.0
+        },
+        {
+            "key": "Cactus",
+            "value": 0.0
+        },
+        {
+            "key": "Cactus_multi",
+            "value": 1622.759765625
+        },
+        {
+            "key": "Carrot",
+            "value": 163.37069702148438
+        },
+        {
+            "key": "constants",
+            "value": 450.0
+        },
+        {
+            "key": "go",
+            "value": 0.0
+        },
+        {
+            "key": "gold_dfs",
+            "value": -0.00201416015625
+        },
+        {
+            "key": "Hay",
+            "value": 142.00689697265626
+        },
+        {
+            "key": "Poly",
+            "value": 0.0
+        },
+        {
+            "key": "Pumpkin",
+            "value": 99.9532470703125
+        },
+        {
+            "key": "Pumpkin_multi",
+            "value": 2250.0
+        },
+        {
+            "key": "route",
+            "value": -0.0009765625
+        },
+        {
+            "key": "snake_v2",
+            "value": 1399.1708984375
+        },
+        {
+            "key": "Sunflower",
+            "value": 0.0
+        },
+        {
+            "key": "Sunflower_multi",
+            "value": 0.0
+        },
+        {
+            "key": "TEST",
+            "value": 0.0
+        },
+        {
+            "key": "utils",
+            "value": 0.0
+        },
+        {
+            "key": "Weird_Substance",
+            "value": 0.0
+        },
+        {
+            "key": "Wood",
+            "value": 300.0696716308594
+        }
+    ],
+    "openFileSizes": [
+        {
+            "key": "Bone",
+            "value": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "key": "Cactus",
+            "value": {
+                "x": 0.0,
+                "y": 586.2981567382813
+            }
+        },
+        {
+            "key": "Cactus_multi",
+            "value": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "key": "Carrot",
+            "value": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "key": "constants",
+            "value": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "key": "go",
+            "value": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "key": "gold_dfs",
+            "value": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "key": "Hay",
+            "value": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "key": "Poly",
+            "value": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "key": "Pumpkin",
+            "value": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "key": "Pumpkin_multi",
+            "value": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "key": "route",
+            "value": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "key": "snake_v2",
+            "value": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "key": "Sunflower",
+            "value": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "key": "Sunflower_multi",
+            "value": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "key": "TEST",
+            "value": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "key": "utils",
+            "value": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "key": "Weird_Substance",
+            "value": {
+                "x": 0.0,
+                "y": 600.0
+            }
+        },
+        {
+            "key": "Wood",
+            "value": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        }
+    ],
+    "openDocPages": [],
+    "unlocks": [
+        "grass_10",
+        "soil",
+        "harvest",
+        "pass",
+        "do_a_flip",
+        "pet_the_piggy",
+        "grassland",
+        "hay",
+        "straw_hat",
+        "while",
+        "true",
+        "false",
+        "break",
+        "continue",
+        "loops",
+        "speed_5",
+        "can_harvest",
+        "if",
+        "else",
+        "elif",
+        "expand_9",
+        "move",
+        "north",
+        "south",
+        "east",
+        "west",
+        "for",
+        "range",
+        "get_world_size",
+        "wood",
+        "bush",
+        "entities",
+        "clear",
+        "plant",
+        "and",
+        "or",
+        "not",
+        "operators",
+        "carrot",
+        "till",
+        "can_trade",
+        "trade",
+        "items",
+        "carrot_seed",
+        "carrots_10",
+        "get_entity_type",
+        "get_ground_type",
+        "grounds",
+        "get_pos_x",
+        "get_pos_y",
+        "none",
+        "num_items",
+        "num_unlocked",
+        "senses",
+        "watering_9",
+        "water",
+        "use_item",
+        "get_water",
+        "tree",
+        "trees_10",
+        "variables",
+        "print",
+        "quick_print",
+        "unlocks",
+        "str",
+        "debug",
+        "functions",
+        "def",
+        "return",
+        "global",
+        "weird_substance",
+        "fertilizer_4",
+        "sunflower_seed",
+        "sunflower",
+        "power",
+        "get_active_power",
+        "measure",
+        "sunflowers",
+        "append",
+        "remove",
+        "pop",
+        "insert",
+        "len",
+        "list",
+        "lists",
+        "pumpkins_10",
+        "pumpkin",
+        "pumpkin_seed",
+        "dead_pumpkin",
+        "min",
+        "max",
+        "abs",
+        "random",
+        "utilities",
+        "get_time",
+        "get_tick_count",
+        "timing",
+        "dinosaur",
+        "egg",
+        "bone",
+        "change_hat",
+        "gray_hat",
+        "purple_hat",
+        "green_hat",
+        "brown_hat",
+        "hats",
+        "dinosaur_hat",
+        "apple",
+        "can_move",
+        "dinosaurs_6",
+        "hedge",
+        "treasure",
+        "gold",
+        "mazes_6",
+        "from",
+        "import",
+        "dicts",
+        "sets",
+        "add",
+        "dict",
+        "set",
+        "dictionaries",
+        "get_cost",
+        "costs",
+        "swap",
+        "cactus_seed",
+        "cactus_6",
+        "unlock",
+        "auto_unlock",
+        "traffic_cone",
+        "tree_hat",
+        "carrot_hat",
+        "sunflower_hat",
+        "wizard_hat",
+        "get_companion",
+        "polyculture_5",
+        "set_execution_speed",
+        "set_world_size",
+        "debug_2",
+        "gold_hat",
+        "cactus_hat",
+        "megafarm_5",
+        "get_drone_id",
+        "num_drones",
+        "max_drones",
+        "wait_for",
+        "spawn_drone",
+        "has_finished",
+        "simulate",
+        "simulation",
+        "the_farmers_remains",
+        "golden_pumpkin_hat",
+        "golden_cactus_hat",
+        "top_hat"
+    ],
+    "version": 3
+}
