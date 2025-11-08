@@ -59,7 +59,7 @@ def main():
         return False
     clear()
     utils._till_multi()
-    utils.loop(run, None, 1 * utils.M)
+    utils.loop(run, None, 100000)
 
 
 if __name__ == "__main__":

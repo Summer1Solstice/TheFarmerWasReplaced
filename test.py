@@ -1,14 +1,14 @@
 from constants import *
 
-filename_list = [
-    "Cactus_multi",
-    "Cactus",
-    "Pumpkin_multi",
-    "Pumpkin",
-    "Sunflower_multi",
-    "Sunflower",
-]
-filename = ""
+# filename_list = [
+#     "Cactus_multi",
+#     "Cactus",
+#     "Pumpkin_multi",
+#     "Pumpkin",
+#     "Sunflower_multi",
+#     "Sunflower",
+# ]
+filename = "Sunflower_multi"
 sim_unlocks = Unlocks
 sim_items = {}
 for i in Items:
@@ -18,7 +18,8 @@ sim_globals = {}
 seed = 0
 speedup = 64
 
-for filename in filename_list:
-    time_s = simulate(filename, sim_unlocks, sim_items, sim_globals, seed, speedup)
+# for filename in filename_list:
+#     time_s = simulate(filename, sim_unlocks, sim_items, sim_globals, seed, speedup)
 
-    print(filename, ": ", time_s // 60, "分", time_s % 60, "秒")
+#     print(filename, ": ", time_s // 60, "分", time_s % 60, "秒")
+leaderboard_run(Leaderboards.Sunflowers, filename, speedup)
