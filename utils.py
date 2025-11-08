@@ -23,7 +23,7 @@ def _till():  # 耕地
 
 
 def watering():  # 浇水
-    if num_items(Items.Water) and get_water() <= 0.75:
+    if num_items(Items.Water) > 1 and get_water() <= 0.75:
         use_item(Items.Water)
         return True
     return False
@@ -173,5 +173,3 @@ def loop(func, way, target=False):  # 循环
             var = func(way)
         if var and quit(var, target):
             return True
-        else:
-            return False
