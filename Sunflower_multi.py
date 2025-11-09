@@ -27,10 +27,18 @@ def _harvest(petal):
     global map
 
     def work():
-        for i in map[petal]:
-            if i[0] == get_pos_x():
-                go.to(i[0], i[1])
-                utils._harvest()
+        x = get_pos_x()
+        while True:
+            not_harvest = []
+            for i in map[petal]:
+                if i[0] == x:
+                    go.to(i[0], i[1])
+                    if not utils._harvest():
+                        not_harvest.append(i)
+            if len(not_harvest):
+                map[petal] = utils.reverse(not_harvest)
+            else:
+                break
         return True
 
     return utils.Assign(work)
@@ -38,6 +46,10 @@ def _harvest(petal):
 
 def run():
     global map
+    if num_items(Items.Water) >= get_world_size() ** 2:
+        utils.Watering = True
+    else:
+        utils.Watering = False
     drone_list = _plant()
     # 合并map
     for i in range(len(drone_list) - 1, -1, -1):
@@ -45,8 +57,6 @@ def run():
         for j in m:
             map[j] += m[j]
     go.to()
-    for i in range(7):
-        do_a_flip()
     for i in range(15, 6, -1):
         _harvest(i)
         map[i] = []

@@ -16,10 +16,10 @@ for i in Items:
 
 sim_globals = {}
 seed = 0
-speedup = 1024
+speedup = 128
 
 # for _ in range(10):
-#     time_s = simulate(filename, sim_unlocks, sim_items, sim_globals, seed, speedup)
-#     print(filename, ": ", time_s // 60, "分", time_s % 60, "秒")
+# time_s = simulate(filename, sim_unlocks, sim_items, sim_globals, seed, speedup)
+# print(filename, ": ", time_s // 60, "分", time_s % 60, "秒")
 leaderboard_run(Leaderboards.Sunflowers, filename, speedup)
 

@@ -35,7 +35,7 @@ steam游戏《The Farmer Was Replaced》
     Cactus                   25分56.8秒  
     Pumpkin_multi            13.64秒  
     Pumpkin                  3分46秒  
-    Sunflower_multi          44.95秒  
+    Sunflower_multi          42.38秒
     Sunflower                6分49.36秒  
 
 
